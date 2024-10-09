@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+int main(){
+long long int n,q;
+cin>>n>>q;
+//non decreasing=>increasing+equal
+vector<long long int>lo(n);
+for(int i=0;i<n;i++){
+    cin>>lo[i];
+}
+for(int i=0;i<q;i++){
+    long long int loi;
+    cin>>loi;
+    auto it=lower_bound(lo.begin(),lo.end(),loi);
+    long long int idx=it-lo.begin();
+    if(it==lo.end() or lo[idx]!=loi){
+        cout<<-1<<endl;
+    }
+    else{
+        cout<<idx<<endl;
+    }
+}
+
+return 0;
+}
